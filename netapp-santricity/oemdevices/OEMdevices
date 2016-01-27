@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+#  Script %name:	OEMdevices.GENERIC %
+#  Instance:		WIC_1
+#  %version:		1 %
+#  Description:		
+#  %created_by:		sagupta %
+#  %date_created:	Tue Jun 01 06:06:49 2010 %
+
+UTIL_PATH=pwd
+JAVA_EXEC=../OracleHomes/agent10g/jre/bin/java
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$UTIL_PATH;
+SHLIB_PATH=$SHLIB_PATH:$UTIL_PATH
+SCR_PATH=$UTIL_PATH
+
+export LD_LIBRARY_PATH SHLIB_PATH SCR_PATH;
+
+# Start up the Storage Manager Devices
+$JAVA_EXEC -classpath $UTIL_PATH/OEMdevices.jar devmgr.versioned.agent.SVMDeviceIdentifier
+
